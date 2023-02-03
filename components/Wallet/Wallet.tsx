@@ -34,7 +34,7 @@ const Wallet: any = ({ connected, onDisconnect, onOpenModal }) => {
   const { connectKeplr } = useConnectKeplr()
   const { connectLeap } = useConnectLeap()
   const { connectCosmostation } = useConnectCosmostation()
-  const { connectTerraAndCloseModal, filterForStation } = useTerraStation(
+  const { connectTerra, filterForStation } = useTerraStation(
     () => {}
   )
   const { availableConnections, availableInstallations } = useWallet()
