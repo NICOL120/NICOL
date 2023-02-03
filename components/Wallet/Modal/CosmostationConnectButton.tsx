@@ -1,28 +1,48 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 
-import { Button, HStack, Text } from '@chakra-ui/react'
-import CosmostationWalletIcon from 'components/icons/CosmostationWalletIcon'
-import useConnectCosmostation from 'hooks/useConnectCosmostation'
-import { useRecoilValue } from 'recoil'
-import { walletState } from 'state/atoms/walletAtoms'
+import { Button, HStack, Image, Text } from '@chakra-ui/react'
+import { useWallet } from '@terra-money/wallet-provider'
+import { useTerraStation } from 'hooks/useTerraStation'
 
-function CosmostationConnectButton({ onCloseModal }) {
-  const { setCosmostationAndConnect } = useConnectCosmostation()
-  const { chainId, activeWallet, network } = useRecoilValue(walletState)
-
-  const setCosmostationMemo = useCallback(() => {
-    setCosmostationAndConnect()
-    onCloseModal()
-  }, [activeWallet, chainId, network])
+function TerraStationConnectButton({ onCloseModal }) {
+  const { availableConnections, availableInstallations } = useWallet()
+  const { connectTerraAndCloseModal, filterForStation } =
+    useTerraStation(onCloseModal)
 
   return (
-    <Button variant="wallet" onClick={() => setCosmostationMemo()} colorScheme="black">
-      <HStack justify="space-between" width="full">
-        <Text>Cosmostation Wallet</Text>
-        <CosmostationWalletIcon />
-      </HStack>
-    </Button>
+    <>
+      {availableConnections
+        .filter(filterForStation)
+        .map(({ type, identifier, name, icon }) => (
+          <Button
+            variant="wallet"
+            key={identifier}
+            onClick={() => connectTerraAndCloseModal(type, identifier)}
+          >
+            <HStack justify="space-between" width="full">
+              <Text>{name}</Text>
+              <Image boxSize="24px" objectFit="cover" src={icon} alt={name} />
+            </HStack>
+          </Button>
+        ))}
+      {availableInstallations
+        .filter(filterForStation)
+        .map(({ identifier, name, icon, url }) => (
+          <Button
+            colorScheme="black"
+            key={identifier}
+            onClick={() => (window.location.href = url)}
+          >
+            <img
+              src={icon}
+              alt={name}
+              style={{ width: '1em', height: '1em' }}
+            />
+            Install {name} [{identifier}]
+          </Button>
+        ))}
+    </>
   )
 }
 
-export default CosmostationConnectButton
+export default TerraStationConnectButton
