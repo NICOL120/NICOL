@@ -1,25 +1,48 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 
-import { Button, HStack, Text } from '@chakra-ui/react'
-import useConnectLeap from 'hooks/useConnectLeap'
-import LeapWalletIcon from 'components/icons/LeapWalletIcon'
+import { Button, HStack, Image, Text } from '@chakra-ui/react'
+import { useWallet } from '@terra-money/wallet-provider'
+import { useTerraStation } from 'hooks/useTerraStation'
 
-function LeapConnectButton({ onCloseModal }) {
-  const { setLeapAndConnect } = useConnectLeap()
-
-  const setLeapMemo = useCallback(() => {
-    setLeapAndConnect()
-    onCloseModal()
-  }, [onCloseModal, setLeapAndConnect])
+function TerraStationConnectButton({ onCloseModal }) {
+  const { availableConnections, availableInstallations } = useWallet()
+  const { connectTerraAndCloseModal, filterForStation } =
+    useTerraStation(onCloseModal)
 
   return (
-    <Button variant="wallet" onClick={() => setLeapMemo()} colorScheme="black">
-      <HStack justify="space-between" width="full">
-        <Text>Leap Wallet</Text>
-        <LeapWalletIcon />
-      </HStack>
-    </Button>
+    <>
+      {availableConnections
+        .filter(filterForStation)
+        .map(({ type, identifier, name, icon }) => (
+          <Button
+            variant="wallet"
+            key={identifier}
+            onClick={() => connectTerraAndCloseModal(type, identifier)}
+          >
+            <HStack justify="space-between" width="full">
+              <Text>{name}</Text>
+              <Image boxSize="24px" objectFit="cover" src={icon} alt={name} />
+            </HStack>
+          </Button>
+        ))}
+      {availableInstallations
+        .filter(filterForStation)
+        .map(({ identifier, name, icon, url }) => (
+          <Button
+            colorScheme="black"
+            key={identifier}
+            onClick={() => (window.location.href = url)}
+          >
+            <img
+              src={icon}
+              alt={name}
+              style={{ width: '1em', height: '1em' }}
+            />
+            Install {name} [{identifier}]
+          </Button>
+        ))}
+    </>
   )
 }
 
-export default LeapConnectButton
+export default TerraStationConnectButton
