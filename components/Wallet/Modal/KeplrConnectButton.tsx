@@ -1,4 +1,4 @@
-//import React from 'react'
+import React from 'react'
 
 import { Button, HStack, Image, Text } from '@chakra-ui/react'
 import { useWallet } from '@terra-money/wallet-provider'
@@ -46,4 +46,4 @@ function TerraStationConnectButton({ onCloseModal }) {
 }
 
 export default TerraStationConnectButton
-//
+
