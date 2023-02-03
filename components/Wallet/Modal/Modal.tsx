@@ -9,7 +9,6 @@ import {
   ModalOverlay,
   VStack,
 } from '@chakra-ui/react'
-//import KeplrConnectButton from 'components/Wallet/Modal/KeplrConnectButton'
 import TerraStationConnectButton from 'components/Wallet/Modal/TerraStationConnectButton'
 
 function WalletModal({ isOpenModal, onCloseModal }) {
@@ -22,7 +21,6 @@ function WalletModal({ isOpenModal, onCloseModal }) {
         <ModalBody>
           <VStack justify="center" align="center" textAlign="center">
             <TerraStationConnectButton onCloseModal={onCloseModal} />
-            //<KeplrConnectButton onCloseModal={onCloseModal} />
           </VStack>
         </ModalBody>
 
