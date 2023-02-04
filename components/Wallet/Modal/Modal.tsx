@@ -9,10 +9,10 @@ import {
   ModalOverlay,
   VStack,
 } from '@chakra-ui/react'
-import KeplrConnectButton from 'components/Wallet/Modal/KeplrConnectButton'
+
 import TerraStationConnectButton from 'components/Wallet/Modal/TerraStationConnectButton'
 
-import LeapConnectButton from './LeapConnectButton'
+
 
 function WalletModal({ isOpenModal, onCloseModal, chainId }) {
   return (
