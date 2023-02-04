@@ -9,9 +9,7 @@ import {
   ModalOverlay,
   VStack,
 } from '@chakra-ui/react'
-
 import TerraStationConnectButton from 'components/Wallet/Modal/TerraStationConnectButton'
-
 function WalletModal({ isOpenModal, onCloseModal }) {
   return (
     <Modal isOpen={isOpenModal} onClose={onCloseModal}>
