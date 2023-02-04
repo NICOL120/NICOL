@@ -8,15 +8,15 @@ import { walletState } from '../../state/atoms/walletAtoms'
 
 const backgrounds = {
   'pisco-1':
-    'linear-gradient(90deg, rgba(60, 205, 100, 0.25) 2.83%, rgba(0, 117, 255, 0.25) 97.47%)',
+    'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(30,43,111,1) 50%, rgba(0,0,0,1) 100%)',
   'uni-3':
-    'linear-gradient(90deg, rgba(60, 205, 100, 0.25) 2.83%, rgba(255, 77, 0, 0.25) 97.47%)',
+    'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(30,43,111,1) 50%, rgba(0,0,0,1) 100%)',
   'phoenix-1':
-    'linear-gradient(90deg, rgba(60, 205, 100, 0.25) 2.83%, rgba(0, 117, 255, 0.25) 97.47%)',
+    'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(30,43,111,1) 50%, rgba(0,0,0,1) 100%)',
   'juno-1':
-    'linear-gradient(90deg, rgba(60, 205, 100, 0.25) 2.83%, rgba(255, 77, 0, 0.25) 97.47%)',
+    'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(30,43,111,1) 50%, rgba(0,0,0,1) 100%)',
   'chihuahua-1':
-    'linear-gradient(90deg, rgba(60, 205, 100, 0.25) 2.83%, rgba(250, 212, 52, 0.50) 97.47%)',
+    'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(30,43,111,1) 50%, rgba(0,0,0,1) 100%)',
 }
 
 const RadialGradient: FC = () => {
