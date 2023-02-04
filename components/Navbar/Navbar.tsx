@@ -36,11 +36,11 @@ const links = [
     link: '/pools',
   },
   {
-    lable: 'Msg extecution',
+    lable: 'Msg',
     link: '/flashloan',
   },
   {
-    lable: 'Vaults',
+    lable: 'Reward',
     link: '/vaults',
   },
   // {
