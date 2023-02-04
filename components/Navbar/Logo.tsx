@@ -8,7 +8,7 @@ const Logo = () => {
     <HStack alignItems="center">
       <Link href="/" passHref>
         <a>
-          <Image src="/img/logo.svg" alt="WhiteWhale Logo" boxSize={[8, 12]} />
+          <Image src="/img/logo.svg" alt="Nicodex Logo" boxSize={[8, 12]} />
         </a>
       </Link>
       <HStack display={['none', 'flex']}>
