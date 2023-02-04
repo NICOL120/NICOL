@@ -28,7 +28,7 @@ const Loader = () => {
             type="rotate"
             from="360 150 150"
             to="0 150 150"
-            dur="1s"
+            dur="5s"
             additive="sum"
             repeatCount="indefinite"
           />
