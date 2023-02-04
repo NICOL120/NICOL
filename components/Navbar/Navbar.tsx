@@ -35,10 +35,10 @@ const links = [
     lable: 'Pools',
     link: '/pools',
   },
-  //{
-  //  lable: 'Flashloan',
-  //  link: '/flashloan',
-  //},
+  {
+    lable: 'Msg extecution',
+    link: '/flashloan',
+  },
   {
     lable: 'Vaults',
     link: '/vaults',
